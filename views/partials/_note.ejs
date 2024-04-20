@@ -1,0 +1,13 @@
+<% if (locals.notes) { %>
+    <% notes.forEach(function(note) { %>
+    <div class="notes-Container">
+        <div class="note-Container">
+            <p> <%= noteContent %> </p>
+        </div>
+        <div class="button-Container">
+            <button type="submit" class="edit">Edit</button>
+            <button type="submit" class="delete">Delete</button>
+        </div>
+    </div>
+<% }); %>
+<% } %>

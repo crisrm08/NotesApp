@@ -13,19 +13,18 @@
             <h3>Type, edit and delete notes</h3>
         </div>
         <div class="rightHeader">
-            <button type="submit">Add note</button>
+                <form action="newNotePage">
+                    <div class="rightHeader">
+                        <button type="submit">Add note</button>
+                    </div>
+                </form>
         </div>
+        
     </header>
 
-    <div class="notes-Container">
-        <div class="note-Container">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin laoreet rutrum maximus. Sed volutpat lobortis volutpat. Nunc lobortis efficitur blandit. Sed efficitur aliquam commodo. Ut lacinia orci nisl, id efficitur nunc sagittis sit amet. Nullam volutpat mattis rhoncus. Vivamus tincidunt pretium magna vitae varius.</p>
-        </div>
-        <div class="button-Container">
-            <button type="submit" class="edit">Edit</button>
-            <button type="submit" class="delete">Delete</button>
-        </div>
-    </div>
+    <% if (locals.noteContent) { %>
+          <%- include('partials/_note') %>
+    <% } %>
 
     <footer>
         <h2>This would be my footer</h2>
