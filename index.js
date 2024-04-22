@@ -8,23 +8,40 @@ app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+var notes = [];
+
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", {notes: notes});
 });
 
 app.get("/newNotePage", (req, res) => {
-    console.log("page working");
     res.render("new-note.ejs");
 });
 
-var notes = [];
+app.post("/CreateNote", (req, res) => {
+    notes.push(req.body.note);
+    res.render("index.ejs", { notes: notes });
+});
 
-app.post("/CreateNote", (req,res) => {
-    notes.push(req.body.push);
-    var noteContent = req.body.note;
-    res.render("index.ejs", {noteContent: noteContent});
+
+app.get("/editNotePage", (req, res) => {
+    const index = req.query.index;
+    if (index !== undefined && notes[index]) { 
+        res.render("edit-note.ejs", { note: notes[index], index: index });
+    } else {
+        res.send("Invalid note index!"); 
+    }
 })
 
+app.post("/EditNote", (req, res) => {
+    const index = parseInt(req.body.index); 
+    if (index >= 0 && index < notes.length) {
+        notes[index] = req.body.note; 
+        res.redirect("/");
+    } else {
+        res.send("Invalid note index!"); 
+    }
+})
 
 
 app.listen(port, () => {

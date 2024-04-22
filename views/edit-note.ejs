@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit note</title>
+</head>
+<body>
+    <h1>Edit the Note below:</h1>
+    <form action="/EditNote" method="post">
+        <input type="hidden" name="index" value="<%= index %>">
+        <textarea id="note" name="note" required></textarea>
+        <button type="submit">Update Note</button>
+    </form>
+    
+</body>
+</html>
