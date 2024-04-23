@@ -1,12 +1,15 @@
+  <!-- this is my new-note.ejs-->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Add New Note</title>
+    <link rel="stylesheet" href="css/NewNote.css">
 </head>
 <body>
-    <h1>Add a New Note below:</h1>
+    <header>
+        <h1>Add New Note</h1>
+    </header>
     <form action="/CreateNote" method="post">
-        <label for="note">Note:</label>
         <textarea id="note" name="note" required></textarea>
         <button type="submit">Submit Note</button>
     </form>

@@ -1,16 +1,11 @@
-<% notes.forEach(function(note, index) { %>
+  <!-- this is my _note.ejs -->
 <div class="notes-Container">
     <div class="note-Container">
-        <p> <%= note %> </p> 
+        <p><%= note %></p> 
     </div>
     <div class="button-Container">
-        <form action="editNotePage">
-            <button type="submit" class="edit">Edit</button>
-        </form>
-        <form action="deleteNote">
+        <form action="/deleteNote?index=<%= index %>" method="post">
             <button type="submit" class="delete">Delete</button>
         </form>
     </div>
 </div>
-<% }) %>
-

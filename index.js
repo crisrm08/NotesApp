@@ -1,3 +1,4 @@
+ //this is my index.js -->
 import express from "express";
 import bodyParser from "body-parser";
 
@@ -24,24 +25,16 @@ app.post("/CreateNote", (req, res) => {
 });
 
 
-app.get("/editNotePage", (req, res) => {
-    const index = req.query.index;
-    if (index !== undefined && notes[index]) { 
-        res.render("edit-note.ejs", { note: notes[index], index: index });
-    } else {
-        res.send("Invalid note index!"); 
-    }
-})
-
-app.post("/EditNote", (req, res) => {
-    const index = parseInt(req.body.index); 
+app.post("/deleteNote", (req, res) => {
+    const index = parseInt(req.query.index); 
     if (index >= 0 && index < notes.length) {
-        notes[index] = req.body.note; 
+        notes.splice(index, 1); 
         res.redirect("/");
     } else {
-        res.send("Invalid note index!"); 
+        res.send("Invalid note index!");
     }
-})
+});
+
 
 
 app.listen(port, () => {
