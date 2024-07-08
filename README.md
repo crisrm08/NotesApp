@@ -4,4 +4,5 @@ Si tienes ya instalado Node.js, abre una nueva terminal y corre los siguientes c
 2. npm i.
 3. npm i express.
 4. npm i ejs
+5. npm i pg 
 Luego de haber instalado los paquetes mencionados, corre "nodemon index.js" y busca en tu navegador "localhost:3000".
