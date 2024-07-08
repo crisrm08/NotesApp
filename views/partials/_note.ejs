@@ -1,11 +1,16 @@
-  <!-- this is my _note.ejs -->
-<div class="notes-Container">
+ <div class="notes-Container">
     <div class="note-Container">
         <p><%= note %></p> 
     </div>
     <div class="button-Container">
         <form action="/deleteNote?index=<%= index %>" method="post">
+            <input type="hidden" name="note" value="<%= note %>">
             <button type="submit" class="delete">Delete</button>
+        </form>
+
+        <form action="/editNotePage" method="post">
+            <input type="hidden" name="note" value="<%= note %>">
+            <button type="submit" class="edit">Edit</button>
         </form>
     </div>
 </div>

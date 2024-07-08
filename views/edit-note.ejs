@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit old Note</title>
+    <link rel="stylesheet" href="css/NewNote.css">
+</head>
+<body>
+    <header>
+        <h1>Edit Note</h1>
+    </header>
+    <form action="/editNote" method="post">
+        <textarea id="note" name="note" required><%= oldNote %></textarea>
+        <button type="submit">Edit Note</button>
+    </form>
+    
+</body>
+</html>
