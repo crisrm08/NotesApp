@@ -6,7 +6,14 @@
 </head>
 <body>
     <header>
-        <h1>Add New Note</h1>
+        <div class="leftHeader">
+            <h1>Add New Note</h1>
+        </div>
+        <div class="rightHeader">
+            <form action="/backToHome" method="get">
+                <button type="submit">Home</button>
+            </form>
+        </div>
     </header>
     <form action="/CreateNote" method="post">
         <textarea id="note" name="note" required></textarea>

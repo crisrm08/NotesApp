@@ -21,7 +21,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let previousNote;
- 
 
 app.get("/", async (req, res) => {
     const allNotes = await db.query("SELECT note FROM notes");
@@ -32,6 +31,10 @@ app.get("/", async (req, res) => {
 app.get("/newNotePage", (req, res) => {
     res.render("new-note.ejs");
 });
+
+app.get("/backToHome", (req,res) => {
+    res.redirect("/");
+})
 
 app.post("/editNotePage", (req, res) => {
     const oldNote = req.body.note;

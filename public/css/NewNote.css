@@ -1,13 +1,18 @@
 body{
     margin: 0;
     padding: 0;
-}
+    background-image: url("https://cdn.autonomous.ai/static/upload/images/common/upload/20230220/Top-15-Brown-Desk-Decor-Ideas-to-Make-Your-Workspace-Unique266f8dd659e.webp");
+    background-color: #C4A484;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}   
 
 header{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: black;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(175, 143, 111, 0.8);
     height: 100px;
     margin-bottom: 100px;
     
@@ -15,6 +20,17 @@ header{
 header h1{
     color: white;
     margin-left: 30px;
+    align-content: center;
+}
+
+.rightHeader {
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+.leftHeader {
+    display: flex;
+    margin-right: 200px
 }
 
 form{
@@ -24,6 +40,7 @@ form{
     align-items: center;
 }
 textarea{
+    background-color: #FFF2D7;
     border-radius: 10px;
     width: 300px;
     height: 150px;
@@ -32,9 +49,14 @@ textarea{
 
 button{
     border-radius: 5px;
-    background-color: black;
+    background-color: #e0a96d; 
     color: white;
     width: 150px;
     height: 50px;
     font-size: larger;
+    border: 0px;
+}
+
+button:hover {
+    background-color: #d18e4c; 
 }

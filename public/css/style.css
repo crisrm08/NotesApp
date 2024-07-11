@@ -1,6 +1,11 @@
-body{
+body {
     padding: 0;
     margin: 0;
+    background-image: url("https://cdn.autonomous.ai/static/upload/images/common/upload/20230220/Top-15-Brown-Desk-Decor-Ideas-to-Make-Your-Workspace-Unique266f8dd659e.webp");
+    background-color: #C4A484;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
 }
 
 body, html {
@@ -14,14 +19,8 @@ body, html {
     flex: 1; 
 }
 
-footer {
-    background-color: black;
-    padding: 10px;
-}
-
-
-header{
-    background-color: black;
+header {
+    background-color: rgba(175, 143, 111, 0.8);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -35,80 +34,102 @@ header{
     justify-content: center; 
 }
 
-header h1{
+header h1 {
     color: white;
+    font-weight: 700;
 }
 
-header h3{
+header h3 {
     color: white;
+    font-weight: 400;
 }
 
-header button{
+header button {
     width: 300px;
     height: 50px;
     font-size: 18px;
     border-radius: 15px;
-    background-color: white;
-    color: black;
+    background-color: #e0a96d; 
+    color: white;
     margin: 10px;
     border: none;
+    cursor: pointer;
 }
 
-.notes-Container{
+header button:hover {
+    background-color: #d18e4c; 
+}
+
+.notes-Container {
     margin-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.note-Container, .button-Container{
+.note-Container, .button-Container {
     display: flex;
     flex-direction: column;
     justify-content: center; 
 }
 
-.note-Container{
+.note-Container {
     width: 80%;
 }
-.note-Container p{
+
+.note-Container p {
     padding: 20px;
+    font-weight: 400;
 }
-.button-Container{
+
+.button-Container {
     width: 10%;
 }
 
-p{
-    background-color: black;
-    color: white;
+p {
+    background-color: #FFF2D7;
+    color: black;
     border-radius: 10px;
 }
 
-.edit{
+.edit {
     border-radius: 15px;
-    background-color: green;
+    background-color: #74512D; 
     color: white;
     width: 150px;
     height: 30px;
     margin-top: 10px;
     border: none;
+    font-weight: 400;
+    cursor: pointer;
 }
 
-.delete{
+.edit:hover {
+    background-color: #AF8260; 
+}
+
+.delete {
     border-radius: 15px;
-    background-color: red;
+    background-color: #A79277; 
     color: white;
     width: 150px;
     height: 30px;
     border: none;
+    font-weight: 400;
+    cursor: pointer;
 }
 
-footer{
-    background-color: black;
+.delete:hover {
+    background-color: #D1BB9E; 
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
     margin-top: 50px;
     padding: 10px;
-    margin-top: 50px;
 }
 
 footer h2 {
     color: white;
+    font-weight: 700;
 }
