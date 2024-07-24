@@ -23,9 +23,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 let previousNote;
 
 app.get("/", async (req, res) => {
-    const allNotes = await db.query("SELECT note FROM notes");
+    const allNotes = await db.query("SELECT note FROM notes ORDER BY created_at DESC");
     const notes = allNotes.rows.map(row => row.note);
-    res.render("index.ejs", {notes: notes});
+    res.render("index.ejs", { notes: notes });
 });
 
 app.get("/newNotePage", (req, res) => {
@@ -45,18 +45,19 @@ app.post("/editNotePage", (req, res) => {
 
 app.post("/CreateNote", async (req, res) => {
     const typedNote = req.body.note;
-    const insertNote = await db.query("INSERT INTO notes (note) VALUES ($1)", [typedNote]);
-    const allNotes = await db.query("SELECT note FROM notes");
+    const insertNote = await db.query("INSERT INTO notes (note, created_at, updated_at) VALUES ($1, NOW(), NOW())", [typedNote]);
+    const allNotes = await db.query("SELECT note FROM notes ORDER BY created_at DESC");
     const notes = allNotes.rows.map(row => row.note);
     res.render("index.ejs", { notes: notes });
 });
+
+
 
 app.post("/deleteNote", async (req, res) => {
     const typedNote = req.body.note;
     
     try {
         const selectedNote = await db.query("SELECT id FROM notes WHERE note = $1", [typedNote]);
-        
         if (selectedNote.rows.length > 0) {
             const selectedID = selectedNote.rows[0].id;
             console.log("id to delete: " + selectedID);
@@ -67,24 +68,25 @@ app.post("/deleteNote", async (req, res) => {
             console.log("Note not found");
             res.status(404).send("Note not found");
         }
+
     } catch (err) {
         console.error(err);
         res.status(500).send("Server error");
     }
 });
 
-app.post("/editNote", async (req,res) => {
-
+app.post("/editNote", async (req, res) => {
     const editedNote = req.body.note;
     console.log("Note to edit: " + editedNote);
     console.log("old note: " + previousNote);
     try {
-        await db.query("UPDATE notes SET note = $1 WHERE note = $2 ", [editedNote, previousNote]);
+        await db.query("UPDATE notes SET note = $1, updated_at = NOW() WHERE note = $2", [editedNote, previousNote]);
         res.redirect("/");
     } catch (error) {
         res.status(500).send("Server error");
     }
 });
+
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
